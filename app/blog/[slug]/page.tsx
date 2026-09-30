@@ -3,19 +3,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export default async function BlogPostPage({
-  params,
-}: {
+interface PageProps {
   params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
-  const post = await getPostBySlug(slug);
+}
 
-  if (!post) {
-    notFound();
-  }
-
-// Função auxiliar para extrair o texto de blocos do Notion
 function renderRichText(richTextArray: any[]) {
   if (!richTextArray || richTextArray.length === 0) return '';
   return richTextArray.map((t: any) => t.plain_text).join('');
