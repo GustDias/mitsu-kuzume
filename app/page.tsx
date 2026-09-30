@@ -111,7 +111,7 @@ export default async function Home() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {posts.map((post) => (
+              {posts.map((post: any) => (
                 <article key={post.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
   <div className="relative h-48 w-full bg-gray-100">
     {post.cover && (
