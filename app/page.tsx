@@ -73,23 +73,27 @@ export default async function Home() {
           </p>
         </div>
 
-        <div className="space-y-6">
-          {bairros.map((bairro, index) => (
-            <div key={index} className="relative h-48 md:h-64 rounded-xl overflow-hidden group cursor-pointer shadow-md">
-              <Image 
-                src={bairro.image} 
-                alt={bairro.name} 
-                fill 
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-all flex items-center justify-center">
-                <h3 className="text-3xl md:text-5xl font-serif text-white tracking-widest font-light">
-                  {bairro.name}
-                </h3>
-              </div>
-            </div>
-          ))}
-        </div>
+<div className="space-y-6">
+  {bairros.map((bairro, index) => (
+    <Link 
+      key={index} 
+      href={`/imoveis?bairro=${encodeURIComponent(bairro.name)}`}
+      className="block relative h-48 md:h-64 rounded-xl overflow-hidden group cursor-pointer shadow-md"
+    >
+      <Image 
+        src={bairro.image} 
+        alt={bairro.name} 
+        fill 
+        className="object-cover group-hover:scale-105 transition-transform duration-700"
+      />
+      <div className="absolute inset-0 bg-black/35 group-hover:bg-black/20 transition-all flex items-center justify-center">
+        <h3 className="text-3xl md:text-5xl font-serif text-white tracking-widest font-light">
+          {bairro.name}
+        </h3>
+      </div>
+    </Link>
+  ))}
+</div>
       </section>
 
       {/* 4. SEÇÃO DO BLOG (ALIMENTADO PELO NOTION) */}
