@@ -45,7 +45,7 @@ export default async function ImoveisPage({ searchParams }: PageProps) {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {houses.map((house) => (
+            {houses.map((house: any) => (
               <Link
                 key={house.id}
                 href={`/imoveis/${house.slug}`}
